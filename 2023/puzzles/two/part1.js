@@ -1,7 +1,5 @@
 import { once } from "node:events";
-import { rline } from "../../utils/readfile.js";
-
-const rl = rline('../../data/puzzle_2.txt');
+import { readline } from "../../utils/getInput.js";
 
 let getGameInfo = (line) => {
 	return {
@@ -13,14 +11,14 @@ let getGameInfo = (line) => {
 };
 
 let sum = 0;
-rl.on('line', async (line) => {
+const getSum = async (line) => {
 	const { gameNumber, reds, greens, blues } = getGameInfo(line);
 
 	if (reds > 12 || greens > 13 || blues > 14) return;
 	sum += gameNumber;
-});
+};
 
-// Wait for all of the lines to be read and processed
-await once(rl, 'close');
+// This reads each line of the input file asynchronously and waits until all of them have been read.
+await once(readline('../../data/puzzle_2.txt').on('line', getSum), 'close');
 
 console.log(sum);
