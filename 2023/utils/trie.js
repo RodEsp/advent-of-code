@@ -60,7 +60,7 @@ Trie.prototype.startsWith = function (prefix) {
 };
 
 /**
- * @param {char[]} sequence
+ * @param {string[]} sequence
  * @return {{depth: number, nodes: object}}
  */
 Trie.prototype.drillDown = function (sequence) {
