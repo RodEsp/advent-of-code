@@ -1,4 +1,5 @@
 import { readfile } from "../../utils/getInput.js";
+import { isNumber } from "../../utils/functions.js";
 
 let sum = 0;
 
@@ -27,7 +28,7 @@ const findNextNumber = (c, row) => {
 	let number = '';
 
 	while (c < row.length) {
-		if (!isNaN(row[c])) {
+		if (isNumber(row[c])) {
 			number += row[c];
 		} else if (number !== '') {
 			break;
