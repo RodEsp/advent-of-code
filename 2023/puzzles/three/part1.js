@@ -4,10 +4,10 @@ import { isNumber } from "../../utils/functions.js";
 let sum = 0;
 
 /**
- * @param {string[][]} engineDiagram 
+ * @param {string[]} engineDiagram 
  */
 const getSum = async (engineDiagram) => {
-	// r and c correspond to the indeces for the rows and columns of the engineDiagram
+	// r and c correspond to the indices for the rows and columns of the engineDiagram
 	let r = 0, c = 0;
 
 	while (r < engineDiagram.length) {
@@ -67,6 +67,6 @@ const isPartNumber = (engineDiagram, number, r, c) => {
 const isSymbol = (char) => char !== '.' && char !== undefined && isNaN(char);
 
 // This gets the input file and splits it into a 2D array of characters
-getSum((await readfile('../../data/puzzle_3.txt')).split('\n').map(line => line.split('')));
+getSum((await readfile('../../data/puzzle_3.txt')).split('\n'));
 
 console.log(sum);
