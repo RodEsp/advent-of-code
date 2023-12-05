@@ -4,7 +4,7 @@ import { readline } from "../../utils/getInput.js";
 let sum = 0;
 const getSum = (line) => {
 	// Forms the input line into an array of winning numbers and guessed numbers
-	const [winners, guesses] = line.match(/[0-9\s]+\|[0-9\s]+/)[0].split('|').map((str) => str.match(/([0-9]{1,2})/g));
+	const [winners, guesses] = line.match(/[0-9\s]+\|[0-9\s]+/)[0].split('|').map((str) => str.match(/([0-9]+)/g));
 
 	let matches = 0;
 	for (let i = 0; i < guesses.length; i++) {
