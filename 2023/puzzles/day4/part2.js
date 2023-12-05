@@ -7,15 +7,12 @@ const getSum = (input) => {
 
 	for (let i = 0; i < input.length; i++) {
 		const [id, winners, guesses] = input[i].match(/Card\s+(\d*):\s([\d\s]+)\s\|\s([\d\s]+)/).slice(1, 4).map((str) => str.match(/([0-9]+)/g)).map(a => a.length === 1 ? Number(a[0]) : a.map(num => Number(num)));
-
 		const card = addCard(id);
 
-		let matches = 0;
-		for (let i = 0; i < guesses.length; i++) {
-			if (winners.includes(guesses[i])) matches++;
-		}
-
-		card.wins = matches;
+		card.wins = guesses.reduce(
+			(sum, guess) => winners.includes(guess) ? sum + 1 : sum,
+			0
+		);
 
 		addWins(card);
 	}
