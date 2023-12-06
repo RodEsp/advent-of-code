@@ -19,6 +19,6 @@ const getSum = async (line) => {
 };
 
 // This reads each line of the input file asynchronously and waits until all of them have been read.
-await once(readline('../../data/puzzle_2.txt').on('line', getSum), 'close');
+await once(readline('../../data/2.txt').on('line', getSum), 'close');
 
 console.log(sum);

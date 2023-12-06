@@ -1,7 +1,7 @@
 import { EOL } from 'os';
 import { readfile } from '../../utils/getInput.js';
 
-const input = await readfile('../../data/puzzle_5.txt');
+const input = await readfile('../../data/5.txt');
 
 const parseInput = (input) => {
 	let [seeds, ...maps] = input.match(/.*:\s([\d\s]+)/g);

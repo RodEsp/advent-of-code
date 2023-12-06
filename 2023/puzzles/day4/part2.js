@@ -48,4 +48,4 @@ const addWins = (card) => {
 };
 
 // This gets the input file and splits it into lines
-getSum((await readfile('../../data/puzzle_4.txt')).split('\n'));
+getSum((await readfile('../../data/4.txt')).split('\n'));

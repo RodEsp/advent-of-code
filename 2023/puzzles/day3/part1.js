@@ -67,6 +67,6 @@ const isPartNumber = (engineDiagram, number, r, c) => {
 const isSymbol = (char) => char !== '.' && char !== undefined && isNaN(char);
 
 // This gets the input file and splits it into lines
-getSum((await readfile('../../data/puzzle_3.txt')).split('\n'));
+getSum((await readfile('../../data/3.txt')).split('\n'));
 
 console.log(sum);
