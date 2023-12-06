@@ -4,8 +4,8 @@ import { createInterface } from 'node:readline/promises';
 
 /**
  * Returns an event emitter that reads data in a file line by line (see https://nodejs.org/docs/latest-v20.x/api/readline.html#readline)
- * @param {string} filepath 
- * @returns 
+ * @param {string} filepath
+ * @returns
  */
 export const readline = (filepath) => {
 	const fileStream = createReadStream(filepath);
@@ -17,7 +17,7 @@ export const readline = (filepath) => {
 
 /**
  * Returns a promise that resolves to the contents of a file as text
- * @param {string} filepath 
- * @returns 
+ * @param {string} filepath
+ * @returns
  */
-export const readfile = async (filepath) => await readFile(filepath, { encoding: 'utf-8' }); 
+export const readfile = async (filepath) => await readFile(filepath, { encoding: 'utf-8' });
