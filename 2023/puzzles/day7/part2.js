@@ -43,7 +43,6 @@ const transformJokers = (counts) => {
 	let max = 0;
 	let most = '';
 
-
 	Object.entries(counts).forEach(([card, count]) => {
 		if (count > max && card !== 'J') {
 			max = count;
