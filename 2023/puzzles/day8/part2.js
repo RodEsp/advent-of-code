@@ -15,11 +15,10 @@ const nodes = nodeStrings.reduce((nodes, str) => {
 
 let count = 0;
 const counts = [];
-let reachedZZZ = false;
 let nextNodes = nodes.endInA;
 let i = 0;
 let dir = null;
-while (!reachedZZZ) {
+while (nextNodes.length > 0) {
 	count++;
 	dir = directions[i++];
 	if (i === directions.length) i = 0;
@@ -33,7 +32,6 @@ while (!reachedZZZ) {
 		}
 		return true;
 	});
-	if (nextNodes.every((node) => node.endsWith('Z'))) reachedZZZ = true;
 }
 
 function getPrimeFactors (number) {
