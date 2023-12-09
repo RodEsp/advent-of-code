@@ -12,8 +12,8 @@ const getSum = async (line) => {
 		for (let i = 1; i < lastSeq.length; i++) {
 			nextSeq.push(lastSeq[i] - lastSeq[i - 1]);
 		}
-		sequences.push([...nextSeq]);
-		lastSeq = [...nextSeq];
+		sequences.push(nextSeq);
+		lastSeq = nextSeq;
 	}
 
 	for (let i = sequences.length - 2; i >= 0; i--) {
