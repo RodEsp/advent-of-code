@@ -3,7 +3,7 @@ import { readfile } from '../../utils/getInput.js';
 
 const input = await readfile('../../data/5.txt');
 
-const parseInput = (input) => {
+function parseInput (input) {
 	let [seeds, ...maps] = input.match(/.*:\s([\d\s]+)/g);
 	seeds = seeds.match(/[\d\s]+/)[0].trim().split(' ').map(n => Number(n));
 
@@ -30,7 +30,7 @@ const parseInput = (input) => {
 
 const { seeds, maps } = parseInput(input);
 
-const applyMaps = (num, maps) => {
+function applyMaps (num, maps) {
 	if (maps.length === 0) {
 		return num;
 	}
@@ -44,7 +44,7 @@ const applyMaps = (num, maps) => {
 		maps.slice(1));
 };
 
-const rangeMap = (num, map) => {
+function rangeMap (num, map) {
 	if (map.source.start <= num && num < map.source.end) {
 		return num - map.source.start + map.dest.start;
 	}

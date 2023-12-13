@@ -39,7 +39,7 @@ const cardRank = ['A', 'K', 'Q', 'J', 'T', '9', '8', '7', '6', '5', '4', '3', '2
 /**
  * @param { hand[] } hands 
  */
-const typeHands = (hands) => {
+function typeHands (hands) {
 	for (let i = 0; i < hands.length; i++) {
 		const hand = hands[i];
 		const counts = {};
@@ -69,7 +69,7 @@ const typeHands = (hands) => {
 /**
  * @param { hand[] } hands 
  */
-const rankHands = (hands) => {
+function rankHands (hands) {
 	hands.sort((h1, h2) => {
 		if (h1.type === h2.type) {
 			for (let i = 0; i < h1.cards.length; i++) {

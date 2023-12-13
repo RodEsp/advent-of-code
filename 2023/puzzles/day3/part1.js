@@ -24,7 +24,7 @@ const getSum = async (engineDiagram) => {
 	}
 };
 
-const findNextNumber = (c, row) => {
+function findNextNumber (c, row) {
 	let number = '';
 
 	while (c < row.length) {
@@ -42,7 +42,7 @@ const findNextNumber = (c, row) => {
 	};
 };
 
-const isPartNumber = (engineDiagram, number, r, c) => {
+function isPartNumber (engineDiagram, number, r, c) {
 	if (r > 0) {
 		// Check row above for symbols
 		for (let i = c - 1; i < c + number.length + 1; i++) {
@@ -64,7 +64,7 @@ const isPartNumber = (engineDiagram, number, r, c) => {
 	return false;
 };
 
-const isSymbol = (char) => char !== '.' && char !== undefined && isNaN(char);
+function isSymbol (char) { return char !== '.' && char !== undefined && isNaN(char); };
 
 // This gets the input file and splits it into lines
 getSum((await readfile('../../data/3.txt')).split('\n'));

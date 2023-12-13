@@ -4,7 +4,7 @@ import { readfile } from "../../utils/getInput.js";
 
 let space = [...(await readfile('../../data/11.txt')).split(EOL)];
 
-const expandSpace = (space) => {
+function expandSpace (space) {
 	// Get all the empty rows
 	const emptyRows = space.flatMap((row, i) => {
 		if (row.indexOf('#') === -1) return [i];

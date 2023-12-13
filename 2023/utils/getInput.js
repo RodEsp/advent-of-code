@@ -7,7 +7,7 @@ import { createInterface } from 'node:readline/promises';
  * @param {string} filepath
  * @returns
  */
-export const readline = (filepath) => {
+export function readline (filepath) {
 	const fileStream = createReadStream(filepath);
 	return createInterface({
 		input: fileStream,

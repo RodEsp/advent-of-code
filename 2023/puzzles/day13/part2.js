@@ -28,7 +28,7 @@ function checkRowsForReflection (pattern) {
 
 	for (let r = 0; r < pattern.length - 1; r++) {
 		if (hammingDistance(pattern[r], pattern[r + 1]) === 1) {
-			[foundReflection, fixedSmudge] = foundReflection = checkIfReflection(r - 1, r + 2, pattern, true);
+			[foundReflection, fixedSmudge] = checkIfReflection(r - 1, r + 2, pattern, true);
 		} else {
 			[foundReflection, fixedSmudge] = checkIfReflection(r, r + 1, pattern, false);
 		}

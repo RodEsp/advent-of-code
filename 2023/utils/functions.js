@@ -1,6 +1,6 @@
-export const isNumber = (number) => !isNaN(number);
+export function isNumber (number) { return !isNaN(number); };
 
-export const memoize = (fn) => {
+export function memoize (fn) {
 	const cache = new Map();
 
 	return (...args) => {
@@ -15,7 +15,7 @@ export const memoize = (fn) => {
 };
 
 // https://en.wikipedia.org/wiki/Transpose
-export const transpose = (matrix) => {
+export function transpose (matrix) {
 	return matrix[0].map((_, colIndex) => matrix.map(row => row[colIndex]));
 };
 
@@ -23,7 +23,7 @@ export const transpose = (matrix) => {
  * @param { String | [] } a
  * @param { String | [] } b
  */
-export const hammingDistance = (a, b) => {
+export function hammingDistance (a, b) {
 	if (a.length !== b.length) throw new Error('Hamming distance can only be computed between two objects of the same length.');
 
 	let count = 0;

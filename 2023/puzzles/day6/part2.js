@@ -1,7 +1,7 @@
 import { EOL } from "os";
 import { readfile } from "../../utils/getInput.js";
 
-const parseInput = (input) => {
+function parseInput (input) {
 	let [time, distance] = input.split(EOL).map(line => line.match(/\d+/g).reduce((num_str, str) => num_str += str, '')).map(n => Number(n));
 	return {
 		time,
@@ -11,7 +11,7 @@ const parseInput = (input) => {
 
 const race = parseInput(await readfile('../../data/6.txt'));
 
-const quadraticEquation = ({ totaltime: b, distance: c }) => {
+function quadraticEquation ({ totaltime: b, distance: c }) {
 	b = b * -1;
 	const root_part = Math.sqrt(b * b - 4 * c);
 

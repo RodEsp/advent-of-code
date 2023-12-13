@@ -59,7 +59,7 @@ for (const r in grid) {
 	}
 }
 
-const moveToNextNode = (currentNode, goingTo) => {
+function moveToNextNode (currentNode, goingTo) {
 	const comingFrom = {
 		north: 'south',
 		south: 'north',

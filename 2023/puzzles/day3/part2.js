@@ -25,7 +25,7 @@ const getSum = async (engineDiagram) => {
 	}
 };
 
-const findNextAsterisk = (c, row) => {
+function findNextAsterisk (c, row) {
 	while (c < row.length) {
 		if (row[c] === '*') {
 			return c;
@@ -36,7 +36,7 @@ const findNextAsterisk = (c, row) => {
 	return null;
 };
 
-const getAsteriskInfo = (engineDiagram, r, c) => {
+function getAsteriskInfo (engineDiagram, r, c) {
 	const partNumbers = [];
 
 	if (r > 0) {
@@ -85,7 +85,7 @@ const getAsteriskInfo = (engineDiagram, r, c) => {
 	};
 };
 
-const getNumber = (c, row) => {
+function getNumber (c, row) {
 	let number = '';
 
 	let start = c;

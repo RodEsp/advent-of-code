@@ -2,7 +2,7 @@ import { once } from "node:events";
 import { readline } from "../../utils/getInput.js";
 
 let sum = 0;
-const getSum = (line) => {
+function getSum (line) {
 	// Forms the input line into an array of winning numbers and guessed numbers
 	const [winners, guesses] = line.match(/[0-9\s]+\|[0-9\s]+/)[0].split('|').map((str) => str.match(/([0-9]+)/g));
 

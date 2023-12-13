@@ -2,7 +2,7 @@ import { readfile } from "../../utils/getInput.js";
 
 const cards = new Map();
 
-const getSum = (input) => {
+function getSum (input) {
 	let sum = 0;
 
 	for (let i = 0; i < input.length; i++) {
@@ -22,7 +22,7 @@ const getSum = (input) => {
 	console.log(sum);
 };
 
-const addCard = (id) => {
+function addCard (id) {
 	let card = cards.get(id);
 
 	if (!card) {
@@ -39,7 +39,7 @@ const addCard = (id) => {
 	return card;
 };
 
-const addWins = (card) => {
+function addWins (card) {
 	for (let i = 0; i < card.instances; i++) {
 		for (let w = 1; w <= card.wins; w++) {
 			addCard(card.number + w);

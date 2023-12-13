@@ -3,7 +3,7 @@ import { readfile } from '../../utils/getInput.js';
 
 const input = await readfile('../../data/5.txt');
 
-const parseInput = (input) => {
+function parseInput (input) {
 	let [seedRanges, ...maps] = input.match(/.*:\s([\d\s]+)/g);
 	seedRanges = seedRanges.match(/[\d\s]+/)[0].trim().match(/\d+\s\d+/g);
 	seedRanges = seedRanges.map(s => s.split(' ').map(n => Number(n)));
@@ -31,7 +31,7 @@ const parseInput = (input) => {
 
 const { seedRanges, maps } = parseInput(input);
 
-const applyMaps = (num, maps) => {
+function applyMaps (num, maps) {
 	if (maps.length === 0) {
 		return num;
 	}
@@ -45,7 +45,7 @@ const applyMaps = (num, maps) => {
 		maps.slice(1));
 };
 
-const rangeMap = (num, map) => {
+function rangeMap (num, map) {
 	if (map.source.start <= num && num < map.source.end) {
 		return num - map.source.start + map.dest.start;
 	}
@@ -53,6 +53,7 @@ const rangeMap = (num, map) => {
 	return num;
 };
 
+// TODO: Transform entire ranges at a time, instead of individual seeds.
 const locations = seedRanges.map(([start, range]) => {
 	let min = Number.MAX_SAFE_INTEGER;
 
