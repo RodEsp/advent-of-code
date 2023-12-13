@@ -17,22 +17,13 @@ function checkIfReflection (r1, r2, pattern) {
 function checkRowsForReflection (pattern) {
 	let foundReflection = false;
 	for (let r = 0; r < pattern.length - 1; r++) {
-		const row = pattern[r];
-		const nextRow = pattern[r + 1];
-
-		if (row.toString() == nextRow.toString()) {
-			foundReflection = checkIfReflection(r, r + 1, pattern);
-		}
-
+		foundReflection = checkIfReflection(r, r + 1, pattern);
 		if (foundReflection) {
 			return r;
 		}
 	}
 
-	if (!foundReflection) {
-		remainingPatterns.push(pattern);
-	}
-
+	remainingPatterns.push(pattern);
 	return null;
 }
 
