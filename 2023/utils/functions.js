@@ -18,3 +18,17 @@ export const memoize = (fn) => {
 export const transpose = (matrix) => {
 	return matrix[0].map((_, colIndex) => matrix.map(row => row[colIndex]));
 };
+
+/**
+ * @param { String | [] } a
+ * @param { String | [] } b
+ */
+export const hammingDistance = (a, b) => {
+	if (a.length !== b.length) throw new Error('Hamming distance can only be computed between two objects of the same length.');
+
+	let count = 0;
+	for (let i = 0; i < a.length; i++) {
+		if (a[i] !== b[i]) count++;
+	}
+	return count;
+};
