@@ -15,7 +15,7 @@ function checkIfReflection (r1, r2, pattern, fixedSmudge) {
 	let foundReflection = false;
 	if (fixedSmudge || pattern[r1].toString() === pattern[r2].toString()) {
 		[foundReflection, fixedSmudge] = checkIfReflection(r1 - 1, r2 + 1, pattern, fixedSmudge);
-		foundReflection = pattern[r1].toString() === pattern[r2].toString() && foundReflection;
+		foundReflection = foundReflection && pattern[r1].toString() === pattern[r2].toString();
 	} else if (hammingDistance(pattern[r1], pattern[r2]) === 1) {
 		[foundReflection, fixedSmudge] = checkIfReflection(r1 - 1, r2 + 1, pattern, true);
 	}
@@ -25,14 +25,12 @@ function checkIfReflection (r1, r2, pattern, fixedSmudge) {
 function checkRowsForReflection (pattern) {
 	let foundReflection = false;
 	let fixedSmudge = false;
-	for (let r = 0; r < pattern.length - 1; r++) {
-		const row = pattern[r];
-		const nextRow = pattern[r + 1];
 
-		if (row.toString() == nextRow.toString()) {
-			[foundReflection, fixedSmudge] = checkIfReflection(r - 1, r + 2, pattern, false);
-		} else if (hammingDistance(row, nextRow) === 1) {
+	for (let r = 0; r < pattern.length - 1; r++) {
+		if (hammingDistance(pattern[r], pattern[r + 1]) === 1) {
 			[foundReflection, fixedSmudge] = foundReflection = checkIfReflection(r - 1, r + 2, pattern, true);
+		} else {
+			[foundReflection, fixedSmudge] = checkIfReflection(r, r + 1, pattern, false);
 		}
 
 		if (foundReflection && fixedSmudge) {

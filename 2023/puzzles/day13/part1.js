@@ -15,12 +15,8 @@ function checkIfReflection (r1, r2, pattern) {
 }
 
 function checkRowsForReflection (pattern) {
-	let foundReflection = false;
 	for (let r = 0; r < pattern.length - 1; r++) {
-		foundReflection = checkIfReflection(r, r + 1, pattern);
-		if (foundReflection) {
-			return r;
-		}
+		if (checkIfReflection(r, r + 1, pattern)) return r;
 	}
 
 	remainingPatterns.push(pattern);
