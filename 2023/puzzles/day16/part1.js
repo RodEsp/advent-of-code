@@ -34,37 +34,12 @@ class Tile {
 	}
 	sendLaserTo (from) {
 		const neighbors = {
-			'|': () => ({ // left-down mirror
-				up: ['down'],
-				down: ['up'],
-				left: ['down', 'up'],
-				right: ['down', 'up'],
-			}[from]), // up-down splitter
-			'-': () => ({ // left-down mirror
-				up: ['right', 'left'],
-				down: ['right', 'left'],
-				left: ['right'],
-				right: ['left'],
-			}[from]), // left-right splitter
-			'\\': () => ({ // left-down mirror
-				up: ['right'],
-				down: ['left'],
-				left: ['down'],
-				right: ['up']
-			}[from]),
-			'/': () => ({ // left-up mirror
-				up: ['left'],
-				down: ['right'],
-				left: ['up'],
-				right: ['down']
-			}[from]),
-			'.': () => ({ // empty space, has an edge opposite from where the laser comes into it
-				up: ['down'],
-				down: ['up'],
-				left: ['right'],
-				right: ['left']
-			}[from])
-		}[this.symbol]();
+			'|': { up: ['down'], down: ['up'], left: ['down', 'up'], right: ['down', 'up'], }, // up-down splitter
+			'-': { up: ['right', 'left'], down: ['right', 'left'], left: ['right'], right: ['left'], }, // left-right splitter
+			'\\': { up: ['right'], down: ['left'], left: ['down'], right: ['up'] }, // left-down mirror
+			'/': { up: ['left'], down: ['right'], left: ['up'], right: ['down'] }, // left-up mirror
+			'.': { up: ['down'], down: ['up'], left: ['right'], right: ['left'] } // empty space
+		}[this.symbol][from];
 
 		return neighbors;
 	}
@@ -78,9 +53,7 @@ const graph = new Map(contraption.flatMap((row, r) => {
 	return nodes;
 }));
 
-
 const queue = [['left', graph.get(Tile.idFromCoords(0, 0))]];
-
 while (queue.length > 0) {
 	const [from, tile] = queue.shift();
 	tile.energized = true;
@@ -97,5 +70,4 @@ while (queue.length > 0) {
 [...graph.values()].forEach(tile => {
 	if (tile.energized) sum++;
 });
-
 console.log(sum);
