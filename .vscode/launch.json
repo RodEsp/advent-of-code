@@ -5,11 +5,11 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Debug 2024 Puzzle 1 Part 2",
+            "name": "Debug 2024 Puzzle - Current",
             "type": "debugpy",
             "request": "launch",
-            "module": "puzzles.1.part2",
+            "module": "puzzles.${fileDirnameBasename}.${fileBasenameNoExtension}",
             "cwd": "${workspaceFolder}/2024"
-        }
+        },
     ]
 }
