@@ -6,3 +6,8 @@ To run the code for a specific puzzle, you will need to run the corresponding fi
 ```bash
 python -m puzzles.1.part_1
 ```
+
+### Input
+Make sure you add your own puzzle input to a file in a `./data/day_X.txt` file.
+
+For example, if you want to run part_1 for day one, you need to create `advent-of-code/2024/data/day_1.txt` and copy your puzzle input into it.
