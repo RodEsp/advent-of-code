@@ -1,4 +1,4 @@
-def get_input(filename):
+def read_file(filename):
     """
     Read and return the contents of a file.
 
