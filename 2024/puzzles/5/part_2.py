@@ -6,7 +6,6 @@ from graphlib import TopologicalSorter
 input = read_file("data/day_5.txt")
 raw_rules, updates = map(lambda x: x.splitlines(), input.split("\n\n"))
 
-# Build rules dictionary: page -> set of pages that can come after it
 rules = defaultdict(set)
 for rule in raw_rules:
     before, after = rule.split("|")

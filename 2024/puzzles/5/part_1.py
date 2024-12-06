@@ -2,7 +2,6 @@ from utils.io import read_file
 from collections import defaultdict
 
 input = read_file("data/day_5.txt")
-
 raw_rules, updates = map(lambda x: x.splitlines(), input.split("\n\n"))
 
 ordering_rules = defaultdict(set)
